@@ -1,0 +1,50 @@
+{
+  "function": {
+    "nietzschehoroscopefetchHoroscope": {
+      "build": true,
+      "providerPlugin": "awscloudformation",
+      "service": "LambdaLayer"
+    }
+  },
+  "hosting": {
+    "amplifyhosting": {
+      "providerPlugin": "awscloudformation",
+      "service": "amplifyhosting",
+      "type": "manual"
+    }
+  },
+  "parameters": {
+    "AMPLIFY_function_nietzschehoroscopefetchHoroscope_deploymentBucketName": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "nietzschehoroscopefetchHoroscope"
+        }
+      ]
+    },
+    "AMPLIFY_function_nietzschehoroscopefetchHoroscope_s3Key": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "nietzschehoroscopefetchHoroscope"
+        }
+      ]
+    },
+    "AMPLIFY_hosting_amplifyhosting_appId": {
+      "usedBy": [
+        {
+          "category": "hosting",
+          "resourceName": "amplifyhosting"
+        }
+      ]
+    },
+    "AMPLIFY_hosting_amplifyhosting_type": {
+      "usedBy": [
+        {
+          "category": "hosting",
+          "resourceName": "amplifyhosting"
+        }
+      ]
+    }
+  }
+}

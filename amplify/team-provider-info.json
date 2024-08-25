@@ -22,7 +22,9 @@
         "nietzschehoroscopefetchHoroscope": {
           "deploymentBucketName": "amplify-nietzschehoroscope-dev-246b8-deployment",
           "s3Key": "amplify-builds/nietzschehoroscopefetchHoroscope-LambdaLayerVersion754b3594-build.zip"
-        }
+        },
+        "fetchHoroscope": {},
+        "fetchHoroscopeApi": {}
       }
     }
   }

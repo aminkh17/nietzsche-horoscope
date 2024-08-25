@@ -1,5 +1,15 @@
 {
   "function": {
+    "fetchHoroscope": {
+      "build": true,
+      "providerPlugin": "awscloudformation",
+      "service": "Lambda"
+    },
+    "fetchHoroscopeApi": {
+      "build": true,
+      "providerPlugin": "awscloudformation",
+      "service": "Lambda"
+    },
     "nietzschehoroscopefetchHoroscope": {
       "build": true,
       "providerPlugin": "awscloudformation",

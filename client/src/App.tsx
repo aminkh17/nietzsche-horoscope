@@ -20,7 +20,7 @@ const App: React.FC = () => {
     setLoading(true);
     setError(null);
     try {
-      const randomNumbers = Array.from({ length: 3 }, () => Math.floor(Math.random() * 100) + 1);
+      const randomNumbers = Array.from({ length: 3 }, () => Math.floor(Math.random() * 20) + 1);
       const response = await fetch(`https://ygaoin91tg.execute-api.ap-southeast-2.amazonaws.com/dev/fetch-horoscope?numbers=${randomNumbers.join(',')}`);
       const data = await response.json();
       setResults(data);

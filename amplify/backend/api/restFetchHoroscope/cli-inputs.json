@@ -1,0 +1,12 @@
+{
+  "version": 1,
+  "paths": {
+    "/fetch-horoscope": {
+      "name": "/fetch-horoscope",
+      "lambdaFunction": "fetchHoroscope",
+      "permissions": {
+        "setting": "open"
+      }
+    }
+  }
+}

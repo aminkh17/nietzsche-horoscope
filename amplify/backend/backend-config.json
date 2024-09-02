@@ -1,4 +1,20 @@
 {
+  "api": {
+    "restFetchHoroscope": {
+      "dependsOn": [
+        {
+          "attributes": [
+            "Name",
+            "Arn"
+          ],
+          "category": "function",
+          "resourceName": "fetchHoroscope"
+        }
+      ],
+      "providerPlugin": "awscloudformation",
+      "service": "API Gateway"
+    }
+  },
   "function": {
     "fetchHoroscope": {
       "build": true,
@@ -24,6 +40,38 @@
     }
   },
   "parameters": {
+    "AMPLIFY_function_fetchHoroscopeApi_deploymentBucketName": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "fetchHoroscopeApi"
+        }
+      ]
+    },
+    "AMPLIFY_function_fetchHoroscopeApi_s3Key": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "fetchHoroscopeApi"
+        }
+      ]
+    },
+    "AMPLIFY_function_fetchHoroscope_deploymentBucketName": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "fetchHoroscope"
+        }
+      ]
+    },
+    "AMPLIFY_function_fetchHoroscope_s3Key": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "fetchHoroscope"
+        }
+      ]
+    },
     "AMPLIFY_function_nietzschehoroscopefetchHoroscope_deploymentBucketName": {
       "usedBy": [
         {

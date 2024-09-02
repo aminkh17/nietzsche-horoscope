@@ -1,17 +1,47 @@
-
+import sdk from "aws-sdk";
+const {S3} = sdk;
+const s3 = new S3();
 
 /**
  * @type {import('@types/aws-lambda').APIGatewayProxyHandler}
  */
-exports.handler = async (event) => {
-    console.log(`EVENT: ${JSON.stringify(event)}`);
-    return {
-        statusCode: 200,
-    //  Uncomment below to enable CORS requests
-    //  headers: {
-    //      "Access-Control-Allow-Origin": "*",
-    //      "Access-Control-Allow-Headers": "*"
-    //  },
-        body: JSON.stringify('Hello from Lambda!'),
+export const handler = async (event) => {
+    const randomNumbers = event.queryStringParameters?.numbers?.split(',').map(Number);
+
+    if (!randomNumbers || randomNumbers.length !== 3) {
+        return {
+          statusCode: 400,
+          body: JSON.stringify({ message: 'Please provide exactly 3 random numbers.' }),
+        };
+    }
+
+    try {
+        const params = {
+            Bucket: 'nietzsche-horoscope-data',
+            Key: 'horoscope-data.json',
+        };
+
+        const data = await s3.getObject(params).promise();
+        const jsonData = JSON.parse(data.Body.toString('utf-8'));
+        
+        const result = randomNumbers.map((num) => jsonData.find((entry) => entry.page === num));
+
+        return {
+            statusCode: 200,
+            headers: {
+                "Access-Control-Allow-Origin": "*", // Allow from any origin
+                "Access-Control-Allow-Methods": "GET, POST, PUT, DELETE, OPTIONS",
+                "Access-Control-Allow-Headers": "Content-Type, Authorization",
+              },
+            body: JSON.stringify(result),
+        };
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    } catch (error) {
+        console.error(error);
+        return {
+            statusCode: 500,
+            body: JSON.stringify({ message: error }),
+        };
     };
+
 };

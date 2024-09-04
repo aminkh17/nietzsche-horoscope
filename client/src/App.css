@@ -1,29 +1,52 @@
+/* add full compatability of media styling for responsive desktop and mobile screens */
+/* add full compatability of media styling for responsive desktop and mobile screens */
+
+/* default styles */
 #root {
-  max-width: 1280px;
+  max-width: 1200px;
   margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
+  padding: 20px;
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
-}
-
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
+/* media queries for different screen sizes */
+@media (prefers-reduced-motion: no-preference) {
+  a:nth-of-type(2) .logo {
+    animation: logo-spin infinite 20s linear;
   }
-  to {
-    transform: rotate(360deg);
+}
+
+/* desktop screens */
+@media (min-width: 1200px) {
+  #root {
+    padding: 30px;
+  }
+}
+
+/* laptop screens */
+@media (min-width: 992px) and (max-width: 1199px) {
+  #root {
+    padding: 25px;
+  }
+}
+
+/* tablet screens */
+@media (min-width: 768px) and (max-width: 991px) {
+  #root {
+    padding: 20px;
+  }
+}
+
+/* mobile screens */
+@media (max-width: 767px) {
+  #root {
+    padding: 15px;
+  }
+}
+
+/* extra small mobile screens */
+@media (max-width: 479px) {
+  #root {
+    padding: 10px;
   }
 }
 
@@ -39,4 +62,68 @@
 
 .read-the-docs {
   color: #888;
+}
+
+body {
+  background-color: #FFFFF0; /* Ivory */
+  color: #1B263B; /* Deep Blue */
+  font-family: Arial, sans-serif;
+}
+
+header {
+  background-color: #3D2C8D; /* Dark Purple */
+  color: #FFFFF0; /* Ivory */
+  padding: 20px;
+  text-align: center;
+}
+
+nav {
+  background-color: #1B263B; /* Deep Blue */
+  color: #FFFFF0; /* Ivory */
+  padding: 10px;
+}
+
+main {
+  background-color: #FFFFF0; /* Ivory */
+  color: #1B263B; /* Deep Blue */
+  padding: 20px;
+}
+
+footer {
+  background-color: #3D2C8D; /* Dark Purple */
+  color: #FFFFF0; /* Ivory */
+  text-align: center;
+  padding: 10px;
+}
+
+h1, h2, h3 {
+  color: #DC143C; /* Crimson Red */
+}
+
+a {
+  color: #FFD700; /* Gold */
+  text-decoration: none;
+}
+
+a:hover {
+  color: #DC143C; /* Crimson Red */
+}
+
+button {
+  background-color: #FFFFF0; /* Gold */
+  color: #1B263B; /* Deep Blue */
+  border: 2px solid #3D2C8D; /* Dark Purple */
+  padding: 10px 20px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #DC143C; /* Crimson Red */
+  color: #FFFFF0; /* Ivory */
+}
+
+.border {
+  border: 2px solid #3D2C8D; /* Dark Purple */
+  padding: 10px;
+  margin: 10px 0;
 }

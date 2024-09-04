@@ -3,6 +3,7 @@ import styled from 'styled-components';
 
 const ResultContainer = styled.div`
   background-color: #f9f9f9;
+  margin-top: 20px;
 `;
 
 const ItemContainer = styled.div`

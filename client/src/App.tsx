@@ -1,29 +1,47 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
-import Header from './components/Header';
-import GenerateButton from './components/GenerateButton';
-import ResultDisplay from './components/ResultDisplay';
-import LoadingSpinner from './components/LoadingSpinner';
 import ErrorNotification from './components/ErrorNotification';
+import GenerateButton from './components/GenerateButton';
+import Header from './components/Header';
+import LoadingSpinner from './components/LoadingSpinner';
+import ResultDisplay from './components/ResultDisplay';
+import { fetchHoroscope as defaultFetchHoroscope } from './services/horoscopeService';
 
 const AppContainer = styled.div`
   text-align: center;
   padding: 20px;
+  # add full desktop responsive styling
+  text-align: center;
+  padding: 20px;
+  max-width: 800px; /* add a max-width to prevent excessive width */
+  margin: 0 auto; /* center the container horizontally */
+
+  /* add media queries for different screen sizes */
+  @media (max-width: 768px) {
+    padding: 10px;
+  }
+
+  @media (max-width: 480px) {
+    padding: 5px;
+  }
+
 `;
 
-const App: React.FC = () => {
-  const [results, setResults] = useState([]);
+interface AppProps {
+  fetchHoroscope?: () => Promise<any>;
+}
+
+function App({ fetchHoroscope = defaultFetchHoroscope }: AppProps) {
+  const [horoscope, setHoroscope] = useState([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
-  const fetchHoroscope = async () => {
+  const handleFetchHoroscope  = async () => {
     setLoading(true);
     setError(null);
     try {
-      const randomNumbers = Array.from({ length: 3 }, () => Math.floor(Math.random() * 20) + 1);
-      const response = await fetch(`https://ygaoin91tg.execute-api.ap-southeast-2.amazonaws.com/dev/fetch-horoscope?numbers=${randomNumbers.join(',')}`);
-      const data = await response.json();
-      setResults(data);
+      const data = await fetchHoroscope();
+      setHoroscope(data);
     } catch (err) {
       setError('Failed to fetch horoscope data.');
     } finally {
@@ -34,10 +52,10 @@ const App: React.FC = () => {
   return (
     <AppContainer>
       <Header />
-      <GenerateButton onClick={fetchHoroscope} />
+      <GenerateButton onClick={handleFetchHoroscope } />
       {loading && <LoadingSpinner />}
       {error && <ErrorNotification message={error} />}
-      {results.length > 0 && <ResultDisplay results={results} />}
+      {horoscope.length > 0 && <ResultDisplay results={horoscope} />}
     </AppContainer>
   );
 };

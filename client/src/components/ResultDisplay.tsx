@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import ReactMarkdown from 'react-markdown';
 
 const ResultContainer = styled.div`
   background-color: #f9f9f9;
@@ -14,12 +15,6 @@ const ItemContainer = styled.div`
   border-radius: 5px;
 `
 
-const Paragraph = styled.p`
-  font-size: 1.1rem;
-  line-height: 1.6;
-  color: #333;
-`;
-
 interface ResultDisplayProps {
   results: Array<{ en: string; fa: string; tr: string; ar: string }>;
 }
@@ -29,10 +24,10 @@ const ResultDisplay: React.FC<ResultDisplayProps> = ({ results }) => {
     <ResultContainer>
       {results.map((result, index) => (
         <ItemContainer key={index}>
-          <Paragraph>{result.en}</Paragraph>
-          <Paragraph>{result.fa}</Paragraph>
-          <Paragraph>{result.tr}</Paragraph>
-          <Paragraph>{result.ar}</Paragraph>
+          <ReactMarkdown>{result.en}</ReactMarkdown>
+          <ReactMarkdown>{result.fa}</ReactMarkdown>
+          <ReactMarkdown>{result.tr}</ReactMarkdown>
+          <ReactMarkdown>{result.ar}</ReactMarkdown>
         </ItemContainer>
       ))}
     </ResultContainer>

@@ -2,7 +2,7 @@ import random
 import json
 
 
-with open("./resources/tsz-data.json", "r") as f:
+with open("./mobireader/resources/tsz-data.json", "r") as f:
     fJson = json.load(f)
 
 

@@ -25,7 +25,7 @@
         },
         "fetchHoroscope": {
           "deploymentBucketName": "amplify-nietzschehoroscope-dev-246b8-deployment",
-          "s3Key": "amplify-builds/fetchHoroscope-5778386e65753539662b-build.zip"
+          "s3Key": "amplify-builds/fetchHoroscope-5069467573566d696e2b-build.zip"
         },
         "fetchHoroscopeApi": {
           "deploymentBucketName": "amplify-nietzschehoroscope-dev-246b8-deployment",

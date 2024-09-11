@@ -21,7 +21,7 @@ const Paragraph = styled.p`
 `;
 
 interface ResultDisplayProps {
-  results: Array<{ first_paragraph: string; toPersian: string; toTurkish: string; toArabic: string }>;
+  results: Array<{ en: string; fa: string; tr: string; ar: string }>;
 }
 
 const ResultDisplay: React.FC<ResultDisplayProps> = ({ results }) => {
@@ -29,10 +29,10 @@ const ResultDisplay: React.FC<ResultDisplayProps> = ({ results }) => {
     <ResultContainer>
       {results.map((result, index) => (
         <ItemContainer key={index}>
-          <Paragraph>{result.first_paragraph}</Paragraph>
-          <Paragraph>{result.toPersian}</Paragraph>
-          <Paragraph>{result.toTurkish}</Paragraph>
-          <Paragraph>{result.toArabic}</Paragraph>
+          <Paragraph>{result.en}</Paragraph>
+          <Paragraph>{result.fa}</Paragraph>
+          <Paragraph>{result.tr}</Paragraph>
+          <Paragraph>{result.ar}</Paragraph>
         </ItemContainer>
       ))}
     </ResultContainer>

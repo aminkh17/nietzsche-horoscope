@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import styled from 'styled-components';
 import ErrorNotification from './components/ErrorNotification';
 import GenerateButton from './components/GenerateButton';

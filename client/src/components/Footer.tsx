@@ -26,7 +26,7 @@ const Rights = styled.p`
 const Footer: React.FC = () => {
     return (
         <StyledFooter>
-            <Rights>Copyright © 2023. All rights reserved. Amin Xodā Bandeh</Rights>
+            <Rights>Copyright © 2024. All rights reserved. Amin Xodā Bandeh</Rights>
         </StyledFooter>
     );
 };

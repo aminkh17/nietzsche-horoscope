@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import styled from 'styled-components';
 import ErrorNotification from './components/ErrorNotification';
+import Footer from './components/Footer';
 import GenerateButton from './components/GenerateButton';
 import Header from './components/Header';
 import LoadingSpinner from './components/LoadingSpinner';
@@ -10,15 +11,11 @@ import { fetchHoroscope as defaultFetchHoroscope } from './services/horoscopeSer
 const AppContainer = styled.div`
   text-align: center;
   padding: 20px;
-  # add full desktop responsive styling
-  text-align: center;
-  padding: 20px;
-  max-width: 800px; /* add a max-width to prevent excessive width */
   margin: 0 auto; /* center the container horizontally */
 
   /* add media queries for different screen sizes */
   @media (max-width: 768px) {
-    padding: 10px;
+    padding: 10px; 
   }
 
   @media (max-width: 480px) {
@@ -56,6 +53,7 @@ function App({ fetchHoroscope = defaultFetchHoroscope }: AppProps) {
       {loading && <LoadingSpinner />}
       {error && <ErrorNotification message={error} />}
       {horoscope.length > 0 && <ResultDisplay results={horoscope} />}
+      <Footer />
     </AppContainer>
   );
 };

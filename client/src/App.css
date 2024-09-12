@@ -1,9 +1,7 @@
 /* add full compatability of media styling for responsive desktop and mobile screens */
-/* add full compatability of media styling for responsive desktop and mobile screens */
-
 /* default styles */
 #root {
-  max-width: 1200px;
+  width: 100%;
   margin: 0 auto;
   padding: 20px;
 }

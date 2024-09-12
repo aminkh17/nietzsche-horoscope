@@ -7,7 +7,7 @@ const ResultContainer = styled.div`
   margin-top: 40px;
 `;
 
-const ItemContainer = styled.div`
+const ItemContainer = styled.div<RotateProps>`
   margin-top: 20px;
   margin-left: auto;
   margin-right: auto;
@@ -47,8 +47,20 @@ const ItemContainer = styled.div`
   }
 `
 
+const AngleIcon = styled.img<RotateProps>`
+  float: left;
+  width: 50px;
+  height: 50px;
+  padding: 10px;
+  transform: ${props => `rotate(${props.rotate}deg)`};
+`
+
 interface ResultDisplayProps {
   results: Array<{ en: string; fa: string; tr: string; ar: string }>;
+}
+
+interface RotateProps {
+  rotate: number;
 }
 
 const ResultDisplay: React.FC<ResultDisplayProps> = ({ results }) => {
@@ -56,6 +68,7 @@ const ResultDisplay: React.FC<ResultDisplayProps> = ({ results }) => {
     <ResultContainer>
       {results.map((result, index) => (
         <ItemContainer key={index} rotate={(index) * 120}>
+          <AngleIcon src="/MeUThen.svg" alt="MeUThen-vague" rotate={(index) * 120}/>
           <ReactMarkdown>{result.en}</ReactMarkdown>
           <ReactMarkdown>{result.fa}</ReactMarkdown>
           <ReactMarkdown>{result.tr}</ReactMarkdown>

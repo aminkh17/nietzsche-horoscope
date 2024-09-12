@@ -1,11 +1,10 @@
 import React from 'react';
-import styled from 'styled-components';
 import ReactMarkdown from 'react-markdown';
+import styled from 'styled-components';
 
 const ResultContainer = styled.div`
   background-color: #f9f9f9;
   margin-top: 40px;
-  margin-bottom: 100px;
 `;
 
 const ItemContainer = styled.div`
@@ -19,9 +18,28 @@ const ItemContainer = styled.div`
   text-align: left;
   width: 80%;
 
+  position: relative;
+  &::before {
+    content: '';
+    position: absolute;
+    top: 17px;
+    right: 0;
+    width: 100px;
+    min-height: 100px;
+    background-image: url('/MeUThen-vague.svg');
+    background-repeat: no-repeat;
+    background-position: left top;
+    background-size: contain; 
+    transform-origin: 50% 60%;
+    transform: ${props => `rotate(${props.rotate}deg)`};
+  }
+  
+
+
+
     /* add media queries for different screen sizes */
   @media (max-width: 768px) {
-    
+   
   }
 
   @media (max-width: 480px) {
@@ -37,7 +55,7 @@ const ResultDisplay: React.FC<ResultDisplayProps> = ({ results }) => {
   return (
     <ResultContainer>
       {results.map((result, index) => (
-        <ItemContainer key={index}>
+        <ItemContainer key={index} rotate={(index) * 120}>
           <ReactMarkdown>{result.en}</ReactMarkdown>
           <ReactMarkdown>{result.fa}</ReactMarkdown>
           <ReactMarkdown>{result.tr}</ReactMarkdown>
